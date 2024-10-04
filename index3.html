@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastu Guidelines Platform</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for the section titles to appear in a row */
+        .section-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .section-title {
+            color: green;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid green;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+
+        /* Popup style */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Darkened backdrop */
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* High z-index to ensure it's above other content */
+        }
+
+        .popup-content {
+            background-color: rgba(255, 0, 0, 0.9); /* Red background with transparency */
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            z-index: 10000; /* High z-index to ensure the content is fully visible */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design for mobile */
+        @media screen and (max-width: 600px) {
+            .section-title {
+                width: 100%; /* Full width for mobile */
+            }
+
+            .popup-content {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Vastu Guidelines</h1>
+
+    <!-- Container to keep all sections in a row -->
+    <div class="section-container">
+        <div class="section-title" onclick="showPopup('mainDoor')">Main Door</div>
+        <div class="section-title" onclick="showPopup('livingRoom')">Living Room</div>
+        <div class="section-title" onclick="showPopup('kidsBedroom')">Kids Bedroom</div>
+        <div class="section-title" onclick="showPopup('masterBedroom')">Master Bedroom</div>
+        <div class="section-title" onclick="showPopup('studyRoom')">Study Room</div>
+        <div class="section-title" onclick="showPopup('kitchen')">Kitchen</div>
+        <div class="section-title" onclick="showPopup('mandir')">Mandir</div>
+        <div class="section-title" onclick="showPopup('staircase')">Staircase</div>
+        <div class="section-title" onclick="showPopup('toilet')">Toilet</div>
+        <div class="section-title" onclick="showPopup('locker')">Locker</div>
+        <div class="section-title" onclick="showPopup('mirror')">Mirror</div>
+        <div class="section-title" onclick="showPopup('shoeRack')">Shoe Rack</div>
+    </div>
+
+    <!-- Popups -->
+    <!-- Main Door Popup -->
+    <div id="mainDoor-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('mainDoor-popup')">&times;</span>
+            <h2>Main Door</h2>
+            <p>The main door should ideally face East or North, as it brings in positive energy.</p>
+            <p>If not compliant: Use a Vastu pyramid above the door or install positive energy symbols.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Keep the entrance clean and well-lit to attract prosperity.
+            </div>
+        </div>
+    </div>
+
+    <!-- Living Room Popup -->
+    <div id="livingRoom-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('livingRoom-popup')">&times;</span>
+            <h2>Living Room</h2>
+            <p>Located ideally in the Northeast, the living room should be clutter-free for smooth energy flow.</p>
+            <p>If not compliant: Use light shades for walls and decor. Mirrors can be used to reflect light and energy.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Position seating to face the North or East for financial prosperity.
+            </div>
+        </div>
+    </div>
+
+    <!-- Kids Bedroom Popup -->
+    <div id="kidsBedroom-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('kidsBedroom-popup')">&times;</span>
+            <h2>Kids Bedroom</h2>
+            <p>The ideal location for a kid’s bedroom is the West, ensuring creativity and mental development.</p>
+            <p>If not compliant: Ensure proper ventilation and use vibrant colors to maintain positive energy.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Encourage placing study desks in the North-East for academic success.
+            </div>
+        </div>
+    </div>
+
+    <!-- Master Bedroom Popup -->
+    <div id="masterBedroom-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('masterBedroom-popup')">&times;</span>
+            <h2>Master Bedroom</h2>
+            <p>The master bedroom should be in the Southwest for stability and strength in relationships.</p>
+            <p>If not compliant: Place a Vastu-friendly painting to balance the energy.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Use soothing colors like beige or cream for tranquility.
+            </div>
+        </div>
+    </div>
+
+    <!-- Study Room Popup -->
+    <div id="studyRoom-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('studyRoom-popup')">&times;</span>
+            <h2>Study Room</h2>
+            <p>The study room should face North or East for concentration and academic success.</p>
+            <p>If not compliant: Place a Vastu pyramid on the desk for focus enhancement.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Keep the desk clean and clutter-free to boost productivity.
+            </div>
+        </div>
+    </div>
+
+    <!-- Kitchen Popup -->
+    <div id="kitchen-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('kitchen-popup')">&times;</span>
+            <h2>Kitchen</h2>
+            <p>The kitchen should ideally be located in the Southeast to align with fire energy.</p>
+            <p>If not compliant: Use mirrors or Vastu remedies to counter negative effects.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Keep the stove clean and place fruits for health and abundance.
+            </div>
+        </div>
+    </div>
+
+    <!-- Mandir Popup -->
+    <div id="mandir-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('mandir-popup')">&times;</span>
+            <h2>Mandir</h2>
+            <p>The Mandir or Puja room should be in the Northeast to attract positive energy.</p>
+            <p>If not compliant: Use incense sticks and natural light to energize the space.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Keep the mandir clean and place a water element nearby for purity.
+            </div>
+        </div>
+    </div>
+
+    <!-- Staircase Popup -->
+    <div id="staircase-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('staircase-popup')">&times;</span>
+            <h2>Staircase</h2>
+            <p>The staircase should be placed in the South or West and should always turn clockwise.</p>
+            <p>If not compliant: Use lighter colors for walls and decor to reduce negative energy.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Ensure steps are of even size and well-lit to maintain harmony.
+            </div>
+        </div>
+    </div>
+
+    <!-- Toilet Popup -->
+    <div id="toilet-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('toilet-popup')">&times;</span>
+            <h2>Toilet</h2>
+            <p>Toilets should ideally be placed in the Northwest or Southeast of the house.</p>
+            <p>If not compliant: Keep plants or install exhaust fans to neutralize negative energy.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Keep the toilet clean and ensure proper ventilation to avoid energy blockage.
+            </div>
+        </div>
+    </div>
+
+    <!-- Locker Popup -->
+    <div id="locker-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('locker-popup')">&times;</span>
+            <h2>Locker</h2>
+            <p>Lockers should face North, and be placed in the Southwest for financial stability.</p>
+            <p>If not compliant: Place a mirror in front of the locker for double wealth reflection.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Keep the locker area clean and avoid clutter for wealth accumulation.
+            </div>
+        </div>
+    </div>
+
+    <!-- Mirror Popup -->
+    <div id="mirror-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('mirror-popup')">&times;</span>
+            <h2>Mirror</h2>
+            <p>Mirrors should be placed on the North or East walls, but not facing the bed.</p>
+            <p>If not compliant: Cover the mirror when not in use, especially at night.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Use large mirrors in the living room for prosperity and positive energy.
+            </div>
+        </div>
+    </div>
+
+    <!-- Shoe Rack Popup -->
+    <div id="shoeRack-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('shoeRack-popup')">&times;</span>
+            <h2>Shoe Rack</h2>
+            <p>Shoe racks should be placed in the South or West, but not in front of the entrance.</p>
+            <p>If not compliant: Ensure the rack is closed and the shoes are neatly arranged.</p>
+            <div class="tips">
+                <strong>FinLoans Tips:</strong> Avoid keeping shoes in the Northeast corner to avoid blocking positive energy.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to display the popup
+        function showPopup(id) {
+            document.getElementById(id + '-popup').style.display = 'flex';
+        }
+
+        // Function to close the popup
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
+
